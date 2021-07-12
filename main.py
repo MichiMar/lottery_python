@@ -1,20 +1,25 @@
 import numpy as np
 
-def balance_loteria(estadistica):
-    lista_contenedora = []
+def weighted_lottery(weights):
+    container_list = []
 
-    for (clave, balance) in estadistica.items():
-        for _ in range(balance):
-            lista_contenedora.append(clave)
+    for (name, weight) in weights.items():
+        for _ in range(weight):
+            container_list.append(name)
 
+    return np.random.choice(container_list)
 
-estadistica = {
-    'gano': 1,
-    'perdio': 1000
+weights = {
+     'winning': 1,
+     'losing': 10
 }
 
-otra_estadistica = {
-    'gano': 1,
-    'salto': 2,
-    'perdio': 3
+print(weighted_lottery(weights))
+
+other_weights = {
+    'green': 1,
+    'yellow': 2,
+    'red': 3
 }
+
+# print(weighted_lottery(other_weights))
